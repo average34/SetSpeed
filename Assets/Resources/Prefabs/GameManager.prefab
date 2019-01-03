@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1097738087498220}
+  m_IsPrefabAsset: 1
+--- !u!1 &1097738087498220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224156716445454470}
+  - component: {fileID: 114685991469570104}
+  m_Layer: 5
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114685991469570104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097738087498220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208057ad06cccda4fbfc38dfd0908ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Okeru_1P: 0
+  Okeru_2P: 0
+  Tehuda1_1P: {fileID: 0}
+  Tehuda2_1P: {fileID: 0}
+  Tehuda3_1P: {fileID: 0}
+  Tehuda4_1P: {fileID: 0}
+  Tehuda1_2P: {fileID: 0}
+  Tehuda2_2P: {fileID: 0}
+  Tehuda3_2P: {fileID: 0}
+  Tehuda4_2P: {fileID: 0}
+  Daihuda_1P: {fileID: 0}
+  Daihuda_2P: {fileID: 0}
+  DeckObject_1P: {fileID: 0}
+  DeckObject_2P: {fileID: 0}
+--- !u!224 &224156716445454470
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097738087498220}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
