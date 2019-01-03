@@ -4,6 +4,8 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+_SetSpeed_Build/
+_WebGL/
 
 # Visual Studio cache directory
 .vs/
@@ -34,3 +36,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.zip
