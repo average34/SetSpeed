@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using SetCards.Cards;
 
-public class KasaneDropZone : MonoBehaviour, IDropHandler, IPointerUpHandler
+public class KasaneDropZone : MonoBehaviour, IDropHandler
 {
 
 
@@ -26,6 +26,10 @@ public class KasaneDropZone : MonoBehaviour, IDropHandler, IPointerUpHandler
         }
     }
 
+    /// <summary>
+    /// ドロップゾーンにカードが置かれたときの処理
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnDrop(PointerEventData pointerEventData)
     {
         GameObject PointerObject = pointerEventData.pointerDrag;
@@ -83,17 +87,5 @@ public class KasaneDropZone : MonoBehaviour, IDropHandler, IPointerUpHandler
         {
         }
     }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-
-        Draggable d = eventData.pointerDrag
-            .GetComponent<Draggable>();
-        if (d != null)
-        {
-
-
-        }
-
-    }
+    
 }

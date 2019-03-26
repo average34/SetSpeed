@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using SetCards.Cards;
 
 public class CardObject : MonoBehaviour
@@ -97,4 +98,5 @@ public class CardObject : MonoBehaviour
         //綺麗に0度にならないことがあるため、補正
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
+    
 }

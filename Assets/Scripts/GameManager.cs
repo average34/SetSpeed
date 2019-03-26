@@ -101,6 +101,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //T でタイトルへ
         if (Input.GetKey(KeyCode.T))
             ToTitle();
+        //Escape でもタイトルへ
+        if (Input.GetKey(KeyCode.Escape))
+            ToTitle();
 
 
 
@@ -118,7 +121,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             //ゲームプレイ時
             case Status.Playing:
                 DraggableRemover.Instance.Remove_2P();
-                
+                DraggableRemover.Instance.Remove_2P_Raycast();
+
                 //ゲーム中の前提条件
                 if (Daihuda_1P.transform.childCount != 0 && Daihuda_2P.transform.childCount != 0)
                 {

@@ -52,7 +52,6 @@ public class Draggable : MonoBehaviour,
     {
         StartCoroutine(OnEndDragCoroutine());
 
-
     }
 
 

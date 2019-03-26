@@ -76,4 +76,28 @@ public class DraggableRemover : SingletonMonoBehaviour<DraggableRemover>
         }
     }
 
+    public void Remove_2P_Raycast()
+    {
+        //2Pカードをレイキャスト無効にする
+        foreach (GameObject obj in UnityEngine.Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (obj.name == "Tehuda1_2P" ||
+                obj.name == "Tehuda2_2P" ||
+                obj.name == "Tehuda3_2P" ||
+                obj.name == "Tehuda4_2P"
+                )
+            {
+                foreach (Transform child in obj.transform)
+                {
+                    int intLay = LayerMask.NameToLayer("Ignore Raycast");
+                    child.gameObject.layer = intLay;
+                }
+
+
+                var CanvasGroup = obj.GetComponentInChildren<CanvasGroup>();
+                if (CanvasGroup != null) CanvasGroup.blocksRaycasts = false;
+            }
+        }
+    }
+
 }

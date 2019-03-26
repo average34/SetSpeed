@@ -116,6 +116,14 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
             break;
         }
 
+#if DEBUG
+        //デバッグ中なら、スペースを押したらカードを引く
+        if (Input.GetKeyDown(KeyCode.Space))
+            PlaceCardFromDeck();
+        if (Input.GetKey(KeyCode.LeftAlt))
+            PlaceCardFromDeck();
+#endif
+
     }
 
 
