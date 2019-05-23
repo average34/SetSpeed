@@ -24,6 +24,7 @@ public class TehudaPanel : MonoBehaviour {
                 if (child.GetSiblingIndex() == this.transform.childCount - 1)
                 {
                     GameObject.Destroy(child.gameObject);
+                    Debug.Log("手札に2つ以上の子オブジェクトがあります。");
                 }
             }
             break;

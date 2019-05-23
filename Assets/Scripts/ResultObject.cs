@@ -32,6 +32,7 @@ public class ResultObject : MonoBehaviour
     int Maisuu_1P;
     int Maisuu_2P;
     TimeSpan ts;
+    [SerializeField]
     int _rest;
     Shouhai _shouhai;
     Rank _rank;
@@ -56,7 +57,6 @@ public class ResultObject : MonoBehaviour
             _shouhai = Shouhai.Lose;
         else
             _shouhai = Shouhai.Draw;
-
 
 
 
@@ -121,6 +121,11 @@ public class ResultObject : MonoBehaviour
                     var _rankText = child.GetComponent<Text>();
                     _rankText.text = RankToText();
 
+                    break;
+                case "RankingButton":
+
+                    //勝った場合でなければ非表示
+                    if (_shouhai != Shouhai.Win) child.gameObject.SetActive(false);
                     break;
             }
         }
@@ -321,7 +326,7 @@ public class ResultObject : MonoBehaviour
                 }
 
 
-                break;
+                //break;
         }
 
 
@@ -346,7 +351,7 @@ public class ResultObject : MonoBehaviour
                 break;
             //レベル3
             case CPUManager.CPULevel.Level3:
-                _tweetText += "東北きりたん(むずかしい)";
+                _tweetText += "東北きりたん(むずい)";
                 break;
             //レベル4
             case CPUManager.CPULevel.Level4:
@@ -354,7 +359,7 @@ public class ResultObject : MonoBehaviour
                 break;
             //レベル99
             case CPUManager.CPULevel.Infinity:
-                _tweetText += "東北イタコ(レベル1)";
+                _tweetText += "デバッグ(おかしい)";
                 break;
             default:
                 return "テスト";
@@ -384,6 +389,26 @@ public class ResultObject : MonoBehaviour
 
 
 
+    }
+
+    /// <summary>
+    /// ランキング登録
+    /// </summary>
+    public void RankingRegister()
+    {
+        //
+        if (null == ts) return;
+
+
+
+        var id = (int)CPUManager.Instance._level - 1;
+        if (id < 0 || id >= 4) return;
+
+        //データランキング送信
+        if (_shouhai == Shouhai.Win)
+        {
+            GetComponent<NCMBScore>().TimeScoreUpload(ts, id);
+        }
     }
 
 }

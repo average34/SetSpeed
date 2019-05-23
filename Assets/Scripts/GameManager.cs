@@ -94,17 +94,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     // Update is called once per frame
     void Update()
     {
-
-        //R でリトライ
-        if (Input.GetKey(KeyCode.R))
-            Retry();
-        //T でタイトルへ
-        if (Input.GetKey(KeyCode.T))
-            ToTitle();
-        //Escape でもタイトルへ
-        if (Input.GetKey(KeyCode.Escape))
-            ToTitle();
-
+        //リザルト表示中はキー受付しない
+        if (nowStatus != Status.Result)
+        {
+            //R でリトライ
+            if (Input.GetKey(KeyCode.R))
+                Retry();
+            //T でタイトルへ
+            if (Input.GetKey(KeyCode.T))
+                ToTitle();
+            //Escape でもタイトルへ
+            if (Input.GetKey(KeyCode.Escape))
+                ToTitle();
+        }
 
 
         //現在のゲーム状態に応じて条件分岐
@@ -666,7 +668,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void Retry()
     {
 
-        SceneManager.LoadScene("SetSpeed_v01");
+        SceneManager.LoadScene("SetSpeed_v02");
     }
 
     /// <summary>

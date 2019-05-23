@@ -259,7 +259,15 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
         obj.transform.localScale = Vector3.one;
 
         //2PならばDraggableを無効化
-        if (_player == Player.Player2) {
+        if (_player == Player.Player2)
+        {
+
+            var Draggable = obj.GetComponentInChildren<Draggable>();
+            if (Draggable != null) Draggable.enabled = false;
+        }
+        //1PでもDraggableを無効化
+        else if (_player == Player.Player1)
+        {
 
             var Draggable = obj.GetComponentInChildren<Draggable>();
             if (Draggable != null) Draggable.enabled = false;
@@ -291,6 +299,11 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
             .OnComplete(() =>
             {
                 if (_player == Player.Player2) { CPUManager.Instance.nowState = CPUManager.State.None; }
+                else if (_player == Player.Player1)
+                {
+                    var Draggable = Draw.GetComponentInChildren<Draggable>();
+                    if (Draggable != null) Draggable.enabled = true;
+                }
                 Draw.transform.SetParent(Tehuda.transform);
                 inDoTween = false;
             });

@@ -50,6 +50,7 @@ public class Draggable : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+
         StartCoroutine(OnEndDragCoroutine());
 
     }
@@ -72,15 +73,21 @@ public class Draggable : MonoBehaviour,
 
     IEnumerator OnEndDragCoroutine()
     {
-        //ドラッグ元に置いたオブジェクトを削除
-        Destroy(draggingObject);
         // 1フレーム待機
-        yield return null;
+        //yield return null;
+        //ドラッグ元に置いたオブジェクトを削除
+        //ToDo:この書き方は公式で推奨されていない。修正すべき
+        DestroyImmediate(draggingObject);
+        //Destroy(draggingObject);
+        draggingObject = null;
         // ドラッグ前の位置に戻す
         transform.position = prevPos;
         transform.SetParent(ReturnToParent);
 
+
+
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+        yield return null;
     }
 
 }

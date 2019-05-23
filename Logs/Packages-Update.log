@@ -1,0 +1,28 @@
+
+=== Thu Mar 21 18:22:41 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were 追加済:
+  com.unity.collab-proxy@1.2.15
+The following packages were 更新済:
+  com.unity.analytics をバージョン 2.0.16 から 3.2.2 へ
+  com.unity.package-manager-ui をバージョン 1.9.11 から 2.0.7 へ
+  com.unity.textmeshpro をバージョン 1.2.4 から 1.3.0 へ
+
+=== Sun May 12 22:35:18 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were 追加済:
+  com.unity.timeline@1.0.0
+  com.unity.multiplayer-hlapi@1.0.2
+  com.unity.xr.legacyinputhelpers@2.0.2
+The following packages were 更新済:
+  com.unity.analytics をバージョン 3.2.2 から 3.3.2 へ
+  com.unity.collab-proxy をバージョン 1.2.15 から 1.2.16 へ
+  com.unity.package-manager-ui をバージョン 2.0.7 から 2.1.2 へ
+  com.unity.purchasing をバージョン 2.0.3 から 2.0.6 へ
+  com.unity.textmeshpro をバージョン 1.3.0 から 2.0.0 へ

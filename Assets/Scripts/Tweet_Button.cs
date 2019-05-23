@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 
 public class Tweet_Button : MonoBehaviour, IPointerClickHandler
 {
@@ -8,7 +9,7 @@ public class Tweet_Button : MonoBehaviour, IPointerClickHandler
         string message =
         this.transform.parent.GetComponent<ResultObject>().TweetText();
         
-        Application.OpenURL("http://twitter.com/intent/tweet?text=" + WWW.EscapeURL(message));
+        Application.OpenURL(url: "http://twitter.com/intent/tweet?text=" + UnityWebRequest.EscapeURL(message));
 
     }
 }

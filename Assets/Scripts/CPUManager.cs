@@ -37,7 +37,7 @@ public class CPUManager : SingletonMonoBehaviour<CPUManager>
 
     }
 
-    public CPULevel _level = CPULevel.Infinity;
+    public CPULevel _level; //= CPULevel.Infinity;
 
     public Player _player = Player.None;
 
@@ -85,8 +85,10 @@ public class CPUManager : SingletonMonoBehaviour<CPUManager>
                 _DrawTS = new TimeSpan(0, 0, 0, 0, 300);
                 break;
             default:
-                _PlaceTS = new TimeSpan(0, 0, 0, 0, 500);
-                _DrawTS = new TimeSpan(0, 0, 0, 0, 300);
+                _PlaceTS = new TimeSpan(0, 0, 3);
+                _DrawTS = new TimeSpan(0, 0, 2);
+                //_PlaceTS = new TimeSpan(0, 0, 0, 0, 500);
+                //_DrawTS = new TimeSpan(0, 0, 0, 0, 300);
                 break;
         }
     }

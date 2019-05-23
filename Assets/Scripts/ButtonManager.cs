@@ -36,7 +36,7 @@ public class ButtonManager : MonoBehaviour {
         TitleManager._CPULevel = (TitleManager.Level)level;
 
 
-        SceneManager.LoadScene("SetSpeed_v01");
+        SceneManager.LoadScene("SetSpeed_v02");
 
 
         switch (TitleManager._CPULevel)

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2077db018983497c877db18d1720438, type: 3}
+  m_Name: RankingBoards
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: 5bda8909bdf3b1d49b66e8a01569077d, type: 2}
+  - {fileID: 11400000, guid: 8f645b1fcb1756049bddfde8490611fa, type: 2}
+  - {fileID: 11400000, guid: ddd0dab2a649c96498368596c554bb90, type: 2}
+  - {fileID: 11400000, guid: 31e671297f570074a9258f18d7e9f087, type: 2}
