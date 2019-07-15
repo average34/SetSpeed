@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour {
 
-    public List<GameObject> StartButtons;
-    public List<GameObject> LevelButtons;
+    public List<GameObject> startButtons;
+    public List<GameObject> levelButtons;
+    public GameObject infoPanel;
 
     public void StartButton()
     {
-        foreach(GameObject button in StartButtons)
+        foreach(GameObject button in startButtons)
         {
             button.SetActive(false);
         }
-        foreach (GameObject button in LevelButtons)
+        foreach (GameObject button in levelButtons)
         {
             button.SetActive(true);
         }
@@ -73,6 +74,12 @@ public class ButtonManager : MonoBehaviour {
         //曲再生
         //midstream jam - musmus
         AudioManager.Instance.PlayBGM("tw061");
+    }
+
+
+    public void SetActiveInfoPanel(bool active = true)
+    {
+        infoPanel.SetActive(active);
     }
 
 }
