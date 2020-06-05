@@ -10,6 +10,7 @@ public class UserReportingXRExtensions : MonoBehaviour
 {
     #region Methods
 
+    [System.Obsolete]
     private void Start()
     {
         if (XRDevice.isPresent)

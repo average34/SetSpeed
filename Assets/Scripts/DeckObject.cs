@@ -81,9 +81,6 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
     //カードを動かしている最中かどうか
     public bool inDoTween { get; private set; }
 
-
-
-
     void Awake()
     {
         //ハーフデッキを生成してランダマイズ
@@ -217,7 +214,8 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
         if (Tehuda1.transform.childCount == 0)
         {
 
-            SetParentFromDeck(Draw, Tehuda1); 
+            SetParentFromDeck(Draw, Tehuda1);
+
         }
         else if (Tehuda2.transform.childCount == 0)
         {
