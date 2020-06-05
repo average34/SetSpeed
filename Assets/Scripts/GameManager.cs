@@ -46,14 +46,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     
 
-    [SerializeField]
-    private GameObject ChoiceNotice;
-    [SerializeField]
-    private GameObject CannotPutNotice;
-    [SerializeField]
-    private GameObject ResultObject;
-    [SerializeField]
-    private GameObject Sokomade;
+    [SerializeField] private GameObject ChoiceNotice = default;
+    [SerializeField] private GameObject CannotPutNotice = default;
+    [SerializeField] private GameObject ResultObject = default;
+    [SerializeField] private GameObject Sokomade = default;
 
 
 

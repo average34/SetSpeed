@@ -32,8 +32,7 @@ public class ResultObject : MonoBehaviour
     int Maisuu_1P;
     int Maisuu_2P;
     TimeSpan ts;
-    [SerializeField]
-    int _rest;
+    [SerializeField] int _rest = default;
     Shouhai _shouhai;
     Rank _rank;
 

@@ -21,8 +21,8 @@ public class KasaneDropZone : MonoBehaviour, IDropHandler
         if (transform.childCount >= 2)
         {
             GameObject go = transform.GetChild(0).gameObject;
-            if (go != null) Debug.Log("台札に2つ以上の子オブジェクトがあります。");
             Destroy(go);
+           // if (go != null) Debug.Log("台札に2つ以上の子オブジェクトがあります。");
         }
     }
 

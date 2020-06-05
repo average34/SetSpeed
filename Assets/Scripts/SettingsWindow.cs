@@ -7,8 +7,7 @@ public class SettingsWindow : MonoBehaviour {
 
 
     //　SoundOptionキャンバスを設定
-    [SerializeField]
-    private GameObject _settingsCanvas;
+    [SerializeField] private GameObject _settingsCanvas = default;
 
     // Use this for initialization
     void Start () {

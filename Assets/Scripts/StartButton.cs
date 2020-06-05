@@ -6,10 +6,8 @@ public class StartButton : MonoBehaviour {
 
 
 
-    [SerializeField]
-    private GameObject DeckObject_1P;
-    [SerializeField]
-    private GameObject DeckObject_2P;
+    [SerializeField] private GameObject DeckObject_1P = default;
+    [SerializeField] private GameObject DeckObject_2P = default;
 
     // Use this for initialization
     void Start() {

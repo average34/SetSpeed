@@ -31,8 +31,8 @@ public class CharaSwitch : SingletonMonoBehaviour<CharaSwitch>
     public Character _chara_1P = Character.Yukari;
     public Character _chara_2P = Character.Itako;
 
-    [SerializeField] private GameObject _tachie_1P;
-    [SerializeField] private GameObject _tachie_2P;
+    [SerializeField] private GameObject _tachie_1P = default;
+    [SerializeField] private GameObject _tachie_2P = default;
 
     // Use this for initialization
     void Start()

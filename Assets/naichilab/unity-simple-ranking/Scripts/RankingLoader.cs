@@ -14,7 +14,7 @@ namespace naichilab
         /// <summary>
         /// リーダーボード一覧
         /// </summary>
-        [SerializeField] public RankingBoards RankingBoards;
+        [SerializeField] public RankingBoards RankingBoards = default;
 
         /// <summary>
         /// 表示対象のボード

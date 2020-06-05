@@ -7,7 +7,7 @@ using SetCards.Cards;
 
 public class CardObject : MonoBehaviour
 {
-    [SerializeField] string _SpriteName;
+    [SerializeField] string _SpriteName = default;
     public Card ThisCard;
 
 

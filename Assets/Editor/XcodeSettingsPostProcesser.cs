@@ -9,9 +9,6 @@ using System.Collections.Generic;
 public class XcodeSettingsPostProcesser : ScriptableObject
 {
 
-    public DefaultAsset m_entitlementsFile;
-
-
     [PostProcessBuild]
     public static void OnPostProcess(BuildTarget buildTarget, string buildPath)
     {

@@ -30,10 +30,8 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
 
 
     [SerializeField] private Color _color = Color.None;
-    [SerializeField]
-    private GameObject _cardObjectPrefab;
-    [SerializeField]
-    private GameObject _uraObjectPrefab;
+    [SerializeField] private GameObject _cardObjectPrefab = default;
+    [SerializeField] private GameObject _uraObjectPrefab = default;
 
     public List<Card> _cardDeckList = new List<Card>();
 
@@ -67,16 +65,11 @@ public class DeckObject : MonoBehaviour, IPointerClickHandler
                 holdCard;
         }
     }
-    [SerializeField]
-    private GameObject Tehuda1;
-    [SerializeField]
-    private GameObject Tehuda2;
-    [SerializeField]
-    private GameObject Tehuda3;
-    [SerializeField]
-    private GameObject Tehuda4;
-    [SerializeField]
-    private GameObject Daihuda;
+    [SerializeField] private GameObject Tehuda1 = default;
+    [SerializeField] private GameObject Tehuda2 = default;
+    [SerializeField] private GameObject Tehuda3 = default;
+    [SerializeField] private GameObject Tehuda4 = default;
+    [SerializeField] private GameObject Daihuda = default;
 
     //カードを動かしている最中かどうか
     public bool inDoTween { get; private set; }

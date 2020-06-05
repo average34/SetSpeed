@@ -12,7 +12,7 @@ namespace naichilab
         /// <summary>
         /// ランキング設定一覧
         /// </summary>
-        [SerializeField] private RankingInfo[] items;
+        [SerializeField] private RankingInfo[] items = default;
 
         /// <summary>
         /// ランキング情報取得
