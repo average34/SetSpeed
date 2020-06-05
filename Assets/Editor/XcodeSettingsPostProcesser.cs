@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.iOS.Xcode;
 using UnityEditor.Callbacks;
 using System.Collections;
+using System.Collections.Generic;
 
 public class XcodeSettingsPostProcesser : ScriptableObject
 {
@@ -18,28 +19,29 @@ public class XcodeSettingsPostProcesser : ScriptableObject
         if (buildTarget != BuildTarget.iOS)
             return;
 
-        var dummy = CreateInstance<EntitlementsPostProcess>();
-        var file = dummy.m_entitlementsFile;
-        DestroyImmediate(dummy);
-        if (file == null)
-            return;
 
-        var proj_path = PBXProject.GetPBXProjectPath(buildPath);
-        var proj = new PBXProject();
+#if UNITY_IOS
 
-        var unityFrameworkGUID = proj.GetUnityFrameworkTargetGuid();
+        string projPath = Path.Combine(buildPath, "Unity-iPhone.xcodeproj/project.pbxproj");
 
-        proj.ReadFromFile(proj_path);
-        var target_name = proj.GetUnityMainTargetGuid();
+        PBXProject proj = new PBXProject();
+        proj.ReadFromString(File.ReadAllText(projPath));
 
-        // NEW
-        //Set the entitlements file name to what you want but make sure it has this extension
-        string entitlementsFileName = "my_app.entitlements";
+        string target = proj.TargetGuidByName("Unity-iPhone");
+        proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-lz");
+        proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-lsqlite3");
+        proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-ObjC");
 
-        var entitlements = new ProjectCapabilityManager(proj_path, entitlementsFileName, "Unity-iPhone", target_name);
-        entitlements.AddPushNotifications(true);
+        var frameworks = new List<string>() {
+            "UserNotifications.framework",
+        };
 
-        //Apply
-        entitlements.WriteToFile();
+        foreach (var framework in frameworks)
+        {
+            proj.AddFrameworkToProject(target, framework, false);
+        }
+
+        File.WriteAllText(projPath, proj.WriteToString());
+#endif
     }
 }
