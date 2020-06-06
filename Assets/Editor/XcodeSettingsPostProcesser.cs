@@ -6,7 +6,7 @@ using UnityEditor.Callbacks;
 using System.Collections;
 using System.Collections.Generic;
 
-public class XcodeSettingsPostProcesser : ScriptableObject
+public class XcodeSettingsPostProcesser
 {
 
     [PostProcessBuild]
@@ -15,7 +15,7 @@ public class XcodeSettingsPostProcesser : ScriptableObject
         // iOS以外のプラットフォームは処理を行わない
         if (buildTarget != BuildTarget.iOS)
             return;
-
+        Debug.Log("OnPostProcess");
 
 #if UNITY_IOS
 
@@ -24,10 +24,10 @@ public class XcodeSettingsPostProcesser : ScriptableObject
         PBXProject proj = new PBXProject();
         proj.ReadFromString(File.ReadAllText(projPath));
 
-        string target = proj.TargetGuidByName("Unity-iPhone");
-        proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-lz");
-        proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-lsqlite3");
-        proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-ObjC");
+        string targetGUID = proj.GetUnityFrameworkTargetGuid();
+        proj.AddBuildProperty(targetGUID, "OTHER_LDFLAGS", "-lz");
+        proj.AddBuildProperty(targetGUID, "OTHER_LDFLAGS", "-lsqlite3");
+        proj.AddBuildProperty(targetGUID, "OTHER_LDFLAGS", "-ObjC");
 
         var frameworks = new List<string>() {
             "UserNotifications.framework",
@@ -35,7 +35,7 @@ public class XcodeSettingsPostProcesser : ScriptableObject
 
         foreach (var framework in frameworks)
         {
-            proj.AddFrameworkToProject(target, framework, false);
+            proj.AddFrameworkToProject(targetGUID, framework, false);
         }
 
         File.WriteAllText(projPath, proj.WriteToString());

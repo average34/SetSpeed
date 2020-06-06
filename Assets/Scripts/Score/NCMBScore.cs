@@ -18,7 +18,7 @@ public class NCMBScore : MonoBehaviour
     }
 
     /// <summary>
-    /// データを送信する
+    /// データをNCMBのサーバーに送信する
     /// </summary>
     public void TimeScoreUpload(TimeSpan timeScore,int id = 0)
     {
