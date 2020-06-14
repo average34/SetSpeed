@@ -1,5 +1,12 @@
-﻿using System;
+﻿
+#if UNITY_WEBGL
+using IceMilkTea.Core;
+using RpgAtsumaruApiForUnity;
+#endif
+using System;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class ResultObject : MonoBehaviour
@@ -108,7 +115,7 @@ public class ResultObject : MonoBehaviour
                     break;
 
                 case "NumberOfRest":
-                    
+
                     var _restText = child.GetComponent<Text>();
                     _restText.text = _rest.ToString() + " 枚";
 
@@ -168,7 +175,7 @@ public class ResultObject : MonoBehaviour
     string RankToText()
     {
         _rank = Ranking();
-        switch(_rank)
+        switch (_rank)
         {
             case Rank.Chuusotsu:
                 return "中卒級";
@@ -269,7 +276,7 @@ public class ResultObject : MonoBehaviour
                     case Shouhai.Draw:
                         return Rank.Rouninsei;
                     case Shouhai.Win:
-                        if (ts >= new TimeSpan(0,0,60))
+                        if (ts >= new TimeSpan(0, 0, 60))
                             return Rank.Daisotsu;
                         else if (ts >= new TimeSpan(0, 0, 40))
                             return Rank.Master;
@@ -406,8 +413,54 @@ public class ResultObject : MonoBehaviour
         //データランキング送信
         if (_shouhai == Shouhai.Win)
         {
+            Task task = SendAndGetRanking(id);
+        }
+    }
+    public async Task SendAndGetRanking(int id)
+    {
+#if UNITY_WEBGL
+        long score = TimeSpanToLongScore(ts);
+
+        // もしプラグインの初期化が終わっていないなら
+        if (!RpgAtsumaruApi.Initialized)
+        {
+            // プラグインの初期化
+            RpgAtsumaruApi.Initialize();
+        }
+        //初期化されたならアツマール
+        if (RpgAtsumaruApi.Initialized)
+        {
+            int atsumaruID = id + 1;
+            await GetComponent<AtsumaruRanking>().SendScore(atsumaruID, score);
+            Debug.Log("ランキング登録終了　atsumaruID:" + atsumaruID + ",score:" + score);
+            await GetComponent<AtsumaruRanking>().ShowScoreboard(atsumaruID);
+            Debug.Log("ランキング取得終了");
+        }
+        else
+        {
             GetComponent<NCMBScore>().TimeScoreUpload(ts, id);
         }
+#else
+        GetComponent<NCMBScore>().TimeScoreUpload(ts, id);
+
+        await Task.Delay(0);
+#endif
+
+
+    }
+
+    /// <summary>
+    /// 秒単位時間の記録を負のスコアに変換するメソッド
+    /// 例えば65.357 秒 であれば、-6536 pt に変換します
+    /// </summary>
+    /// <param name="Time"></param>
+    /// <returns></returns>
+    public long TimeSpanToLongScore(TimeSpan Time)
+    {
+        long plusScore = Convert.ToInt64(Math.Round(Time.TotalSeconds * 100, MidpointRounding.AwayFromZero));
+        long minusScore = -1 * plusScore;
+
+        return Convert.ToInt64(minusScore);
     }
 
 }

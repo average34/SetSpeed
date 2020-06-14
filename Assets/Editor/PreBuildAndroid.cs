@@ -5,11 +5,12 @@ using UnityEditor.Build;
 using UnityEngine;
 using System.IO;
 using SimpleJSON;
+using UnityEditor.Build.Reporting;
 
-class PreBuildAndroid : IPreprocessBuild
+class PreBuildAndroid : IPreprocessBuildWithReport
 {
     public int callbackOrder { get { return 0; } }
-    public void OnPreprocessBuild(BuildTarget target, string path)
+    public void OnPreprocessBuild(BuildReport report)
     {
         string androidPath = Application.dataPath + "/Plugins/Android";
         string gsJsonPath = androidPath + "/google-services.json";
@@ -114,6 +115,7 @@ class PreBuildAndroid : IPreprocessBuild
         }
         return string.Format("  <string name=\"{0}\" translatable=\"false\">{1}</string>\n", key, node.Value);
     }
+
 }
 
 #endif

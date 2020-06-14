@@ -1,0 +1,10 @@
+{
+	"name": "jp.sinoa.rpgatsumaruapiforunity",
+	"displayName": "RpgAtsumaruApiForUnity",
+	"version": "1.2.0",
+	"unity": "2018.3",
+	"description": "This package provides RPGAtsumaru in NicoGame develop For WebGL.",
+	"keywords": ["support", "niconico", "RPGAtsumaru", "webgl"],
+	"category": "GameLibrary",
+	"dependencies": {}
+}
