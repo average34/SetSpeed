@@ -119,7 +119,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.2
+  bundleVersion: 2.2.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -166,7 +166,8 @@ PlayerSettings:
     Android: com.Average34.SetSpeed
     Standalone: com.Company.ProductName
     iPhone: com.average34.SetSpeed
-  buildNumber: {}
+  buildNumber:
+    iPhone: 2.2.1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 28
   AndroidTargetSdkVersion: 28
